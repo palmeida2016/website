@@ -3,6 +3,7 @@
   src: url("..\\font\\Super-Mario-World.ttf");
 }
 
+/* Background */
 body {
   background-color: beige;
   font-family: Arial, Helvetica, sans-serif;
@@ -10,18 +11,6 @@ body {
   text-align: center;
 }
 
-/* h2 {
-  font-family: "titleFont";
-  color: white;
-  -webkit-text-stroke: 1.5px black;
-}
-
-h2.remove-whitespace {
-  margin: 0;
-  padding: 5px;
-  line-height: 30px;
-  height: 25px;
-} */
 
 .content {
   width: 720px;
@@ -32,17 +21,68 @@ h2.remove-whitespace {
   justify-content: space-around; */
   margin: 0 auto;
 
-  background: url("../imgs/home_background.png");
+  background: url("../imgs/home_background2.png");
   background-color: aqua;
   background-size: cover;
-  border: 10px solid black;
+  border: 5px solid black;
 }
 
+/* Wind animation */
+.leaves {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+
+.leaves div {
+  position: absolute;
+  background: url(..\\imgs\\leaf.png);
+  background-size: cover;
+  display: block;
+  width: 38px;
+  height: 26px;
+
+  /* background-color: rgb(22, 179, 16);
+  border-radius: 20rem 0;
+  overflow: hidden; */
+}
+
+.leaves div:nth-child(1) {
+  top: 10%;
+  animation: leafAnim 10s infinite linear;
+}
+
+.leaves div:nth-child(2) {
+  top: 35%;
+  animation: leafAnim 6s infinite linear;
+}
+
+.leaves div:nth-child(3) {
+  top: 60%;
+  animation: leafAnim 4s infinite ease-in;
+}
+
+.leaves div:nth-child(4) {
+  top: 75%;
+  animation: leafAnim 8s infinite linear;
+}
+
+@keyframes leafAnim {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+    transform: rotate(360deg) translateZ(-150rem);
+  }
+}
+
+/* Title card */
 #title-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   height: 100px;
   width: auto;
   /* background-color: brown; */
@@ -53,13 +93,14 @@ h2.remove-whitespace {
   text-align: center;
 }
 
+/* Menu */
 #menu-options {
   display: flex;
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 150px;
+  height: 200px;
   width: auto;
   /* background-color: blue; */
 }
