@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "titleFont";
+  font-family: "titleOptionFont";
   src: url("..\\font\\Super-Mario-World.ttf");
 }
 
@@ -10,10 +10,10 @@ body {
   text-align: center;
 }
 
-h2 {
+/* h2 {
   font-family: "titleFont";
   color: white;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1.5px black;
 }
 
 h2.remove-whitespace {
@@ -21,7 +21,7 @@ h2.remove-whitespace {
   padding: 5px;
   line-height: 30px;
   height: 25px;
-}
+} */
 
 .content {
   width: 720px;
@@ -57,8 +57,44 @@ h2.remove-whitespace {
   display: flex;
   margin-top: 20px;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 150px;
   width: auto;
   /* background-color: blue; */
 }
+
+#menu-option {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: auto;
+  margin: 5px;
+  gap: 10px;
+  /* background-color: blue; */
+}
+
+.current-option {
+  background: url("..\\imgs\\title-itemSelect.png");
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  display: none;
+}
+
+.page-option {
+  font-family: "titleOptionFont";
+  font-size: larger;
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+
+  background-color: transparent;
+  border: none;
+  width: min-content;
+}
+
+button.page-option:hover + div.current-option{
+  display: block;
+  color: green;
+}
+
