@@ -13,6 +13,7 @@ body {
 
 
 .content {
+  min-width: ;
   width: 80vw;
   height: 75vh;
   
@@ -88,6 +89,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 60vw;
+  max-height: 10vh;
   height: auto;
   width: auto;
   margin-top: 0;
@@ -112,7 +115,7 @@ body {
 /* Menu */
 #menu-options {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -134,15 +137,16 @@ body {
 
 .current-option {
   background: url("..\\imgs\\title-itemSelect.png");
-  background-size: cover;
-  width: 15px;
-  height: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 3vh;
+  height: 3vh;
   display: none;
 }
 
 .page-option {
   font-family: "titleOptionFont";
-  font-size: larger;
+  font-size: 3vh;
   color: white;
   -webkit-text-stroke: 1.5px black;
 
@@ -153,8 +157,4 @@ body {
 
 button.page-option:hover + div.current-option{
   display: block;
-}
-
-button.page-option:hover {
-  color: green;
 }
