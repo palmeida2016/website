@@ -95,6 +95,5 @@ h2.remove-whitespace {
 
 button.page-option:hover + div.current-option{
   display: block;
-  color: green;
 }
 
