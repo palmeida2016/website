@@ -1,169 +1,31 @@
-@font-face {
-  font-family: "titleOptionFont";
-  src: url("..\\font\\Super-Mario-World.ttf");
+html {
+  font-size: 62.5%;
 }
 
-/* Background */
 body {
-  background-color: beige;
-  font-family: Arial, Helvetica, sans-serif;
-  background-size: cover;
-  text-align: center;
-}
-
-
-.content {
-  width: 80vw;
-  height: 75vh;
-  
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
-  border: 5px solid black;
-  margin: 0 auto;
-  z-index: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  max-width: 95%;
+  max-height: 95%;
+
+  margin: auto;
+  border: 2px solid black;
 }
 
 .home-background {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home-background img {
+  max-height: 95vh;
   width: 100%;
-  height: 100%;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  background: url("../imgs/home_background2.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* Wind animation */
-.leaves {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.leaves div {
-  position: absolute;
-  background: url(..\\imgs\\leaf.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: block;
-  width: 4vw;
-  height: 4vh;
-}
-
-.leaves div:nth-child(1) {
-  top: 10%;
-  animation: leafAnim 10s infinite linear;
-}
-
-.leaves div:nth-child(2) {
-  top: 35%;
-  animation: leafAnim 6s infinite linear;
-}
-
-.leaves div:nth-child(3) {
-  top: 60%;
-  animation: leafAnim 4s infinite ease-in;
-}
-
-.leaves div:nth-child(4) {
-  top: 75%;
-  animation: leafAnim 8s infinite linear;
-}
-
-@keyframes leafAnim {
-  0% {
-    left: 0%;
-  }
-  100% {
-    left: 100%;
-    transform: rotate(360deg) translateZ(-150rem);
-  }
-}
-
-/* Title card */
-#title-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* max-width: 60vw;
-  max-height: 10vh; */
-  height: auto;
-  width: 80%;
-  margin-top: 0;
-  z-index: 2;
-}
-
-#title-card img {
-  margin-top: 10vh;
-  max-width: 60vw;
-  max-height: 10vh;
-  
-  height: auto;
-  width: 80%;
-  object-fit: contain;
-}
-
-#title-name {
-  color: black;
-  text-align: center;
-}
-
-/* Menu */
-#menu-options {
-  display: flex;
-  margin-top: 10vh;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  width: auto;
-  z-index: 2;
-  /* background-color: blue; */
-}
-
-#menu-option {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: auto;
-  margin: 5px;
-  gap: 10px;
-  /* background-color: blue; */
-}
-
-.current-option {
-  background: url("..\\imgs\\title-itemSelect.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 3vh;
-  height: 3vh;
-  display: none;
-}
-
-.page-option {
-  font-family: "titleOptionFont";
-  font-size: 3vh;
-  color: white;
-  -webkit-text-stroke: 1.5px black;
-
-  background-color: transparent;
-  border: none;
-  width: min-content;
-}
-
-button.page-option:hover + div.current-option{
-  display: block;
+  background-attachment: fixed;
 }
