@@ -2,6 +2,11 @@ html {
   font-size: 62.5%;
 }
 
+@font-face {
+  font-family: "titleOptionFont";
+  src: url("..\\font\\Super-Mario-World.ttf");
+}
+
 body {
   display: flex;
   justify-content: flex-start;
@@ -35,17 +40,18 @@ body {
 .home-content {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 88%;
   top: 12%;
 
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 
   /* background-color: blue; */
 }
 
-#title-card {
+.title-card {
   top: 50%;
   width: 100%;
 
@@ -54,6 +60,59 @@ body {
   justify-content: center;
 }
 
-#title-card img {
+.title-card img {
   max-width: 80%;
+}
+
+
+/* Menu */
+.menu-options {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  gap: 3%;
+}
+
+.menu-option {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+}
+
+/* @media screen and (min-height: 400px) {
+  .menu-option {
+    height: 100px;
+  }
+} */
+
+.current-option {
+  background: url("..\\imgs\\title-itemSelect.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: max(2vh,2vw);
+  height: max(2vh,2vw);
+  display: none;
+}
+ 
+.page-option {
+  height: 100%;
+  font-family: "titleOptionFont";
+  font-size: min(4cqw,4cqh);
+  color: white;
+  -webkit-text-stroke: 1.5px black;
+
+  background-color: transparent;
+  border: none;
+}
+
+button.page-option:hover + div.current-option{
+  display: block;
 }
