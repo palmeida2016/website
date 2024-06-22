@@ -106,7 +106,13 @@ body {
   background-repeat: no-repeat;
   width: max(2vh,2vw);
   height: max(2vh,2vw);
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@keyframes blinkAnim {
+  
 }
  
 .page-option {
@@ -115,13 +121,15 @@ body {
   font-size: min(4cqw,4cqh);
   color: white;
   -webkit-text-stroke: 1.5px black;
+  justify-self: center;
 
   background-color: transparent;
   border: none;
 }
 
 button.page-option:hover + div.current-option{
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .leaves
