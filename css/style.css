@@ -110,6 +110,10 @@ body {
   opacity: 0;
   transition: opacity 0.3s;
 }
+
+@keyframes blinkAnim {
+  
+}
  
 .page-option {
   height: 100%;
