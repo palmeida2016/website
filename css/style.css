@@ -111,8 +111,10 @@ body {
   transition: opacity 0.3s;
 }
 
-@keyframes blinkAnim {
-  
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
  
 .page-option {
@@ -130,6 +132,7 @@ body {
 button.page-option:hover + div.current-option{
   visibility: visible;
   opacity: 1;
+  animation: blinker 0.7s step-start infinite;
 }
 
 .leaves
