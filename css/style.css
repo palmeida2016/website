@@ -77,6 +77,13 @@ body {
   pointer-events: none;
 }
 
+/* Onload animation */
+@keyframes image_blur {
+  0% { -webkit-filter: blur(0px);}
+  50% { -webkit-filter: blur(5px);}
+  100% { -webkit-filter: blur(0px);}
+}
+
 /* Menu */
 .menu-options {
   width: 100%;
@@ -104,8 +111,10 @@ body {
   background: url("..\\imgs\\title-itemSelect.png");
   background-size: contain;
   background-repeat: no-repeat;
-  width: max(2vh,2vw);
-  height: max(2vh,2vw);
+  background-position-y: center;
+  height: 100%;
+  width: 2.5%;
+  
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s;
@@ -132,7 +141,7 @@ body {
 button.page-option:hover + div.current-option{
   visibility: visible;
   opacity: 1;
-  animation: blinker 0.7s step-start infinite;
+  animation: blinker 0.55s step-start infinite;
 }
 
 .leaves
