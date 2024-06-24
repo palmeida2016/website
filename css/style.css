@@ -27,6 +27,7 @@ body {
 
   height: 100vh;
   width: 100vw;
+  margin: auto;
 }
 
 .container {
@@ -219,4 +220,3 @@ button.page-option:hover + div.current-option{
     transform: rotate(360deg) translateY(-10rem);
   }
 }
-
