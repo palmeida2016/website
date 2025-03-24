@@ -1,9 +1,114 @@
-<html>
-    <body>
-        <canvas style="border: solid 1px black;"></canvas>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumping and Moving Block</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: lightblue;
+            overflow: hidden;
+        }
+        .game-container {
+            position: relative;
+            width: 80vw;
+            height: 80vh;
+            background-color: lightgreen;
+            border: 2px solid black;
+        }
+        .character {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            top: 50%;
+            left: 10px;
+            transition: left 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="character" id="character"></div>
+    </div>
+
+    <script>
+        let character = document.getElementById('character');
+        let positionX = 10;
+        let positionY = 50;
+        const step = 5;
+        const jumpHeight = 10;  // How high the block jumps
+        let isJumping = false;
+        let velocityY = 0;
+        const gravity = 0.2;  // Controls how fast the block falls
+        const containerHeight = document.querySelector(".game-container").offsetHeight;
+        const containerWidth = document.querySelector(".game-container").offsetWidth;
+
+        // Track which keys are being pressed
+        let keysPressed = {
+            ArrowRight: false,
+            ArrowLeft: false,
+            " ": false,  // Spacebar
+        };
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                keysPressed.ArrowRight = true;
+            } else if (event.key === 'ArrowLeft') {
+                keysPressed.ArrowLeft = true;
+            } else if (event.key === ' ') {  // Spacebar for jumping
+                if (!isJumping) {
+                    isJumping = true;
+                    velocityY = -jumpHeight;  // Set upward velocity
+                }
+                keysPressed[" "] = true;
+            }
+        });
+
+        document.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowRight') {
+                keysPressed.ArrowRight = false;
+            } else if (event.key === 'ArrowLeft') {
+                keysPressed.ArrowLeft = false;
+            } else if (event.key === ' ') {
+                keysPressed[" "] = false;
+            }
+        });
+
+        // Main game loop
+        function gameLoop() {
+            // Handle horizontal movement
+            if (keysPressed.ArrowRight && positionX + step < containerWidth - 50) {
+                positionX += step;
+            } else if (keysPressed.ArrowLeft && positionX - step >= 0) {
+                positionX -= step;
+            }
+
+            // Handle jumping and gravity
+            if (isJumping) {
+                positionY += velocityY;
+                velocityY += gravity;  // Apply gravity
+
+                if (positionY >= containerHeight - 50) {  // Block lands on the ground
+                    positionY = containerHeight - 50;
+                    isJumping = false;
+                }
+            }
+
+            // Update the character's position
+            character.style.left = positionX + "px";
+            character.style.top = positionY + "px";
+
+            requestAnimationFrame(gameLoop);  // Repeat the game loop
+        }
+
+        gameLoop();  // Start the game loop
+    </script>
+</body>
 </html>
-
-
-<script src="js/about.js"></script>
-<link rel="stylesheet" href="css/style.css">
