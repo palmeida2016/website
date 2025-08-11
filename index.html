@@ -1,45 +1,70 @@
 <!doctype html>
-
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Website</title>
         <link rel="stylesheet" href="css/style.css">
-        <script src="js/mario.js"></script>
+    </head>
     <body>
         <div class="container">
             <div class="home-background">
-                <img src="imgs\\home_background2.png" id="home-background-png" class="unselectable" draggable="false">
+                <img src="imgs/home_background.png" id="home-background-png" class="unselectable" draggable="false">
+
+                <!-- Clouds layer -->
+                <div class="clouds">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+
                 <div class="home-content">
                     <div class="title-card">
-                        <img src="imgs\title-name.png" class="unselectable" draggable="false">
+                        <img src="imgs/title-name.png" class="unselectable" draggable="false">
                     </div>
+
                     <div class="menu-options">
                         <div class="menu-option">
-                            <button class="page-option">About</button> 
-                            <div class="current-option"></div> 
+                            <a class="menu-option-anchor" href="about.html">
+                                <button class="page-option">About</button> 
+                                <div class="current-option"></div>
+                            </a>    
                         </div>
                         <div class="menu-option">
-                            <button class="page-option">Work</button>
-                            <div class="current-option"></div>
+                            <a class="menu-option-anchor" href="work.html">
+                                <button class="page-option">Work</button>
+                                <div class="current-option"></div>
+                            </a>        
                         </div>
                         <div class="menu-option">
-                            <button class="page-option">Projects</button>
-                            <div class="current-option"></div>
+                            <a class="menu-option-anchor" href="projects.html">
+                                <button class="page-option">Projects</button>
+                                <div class="current-option"></div>
+                            </a>    
                         </div>
                         <div class="menu-option">
-                            <button class="page-option">Contact</button>
-                            <div class="current-option"></div>
+                            <a class="menu-option-anchor" href="contact.html">
+                                <button class="page-option">Contact</button>
+                                <div class="current-option"></div>
+                            </a>    
                         </div>
                     </div>
+
                     <div class="leaves">
                         <div></div>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
+
+                    <!-- Robot sprite -->
+                    <div class="robot"></div>
                 </div>
+
+                <!-- Ground footer -->
+                <div class="ground"></div>
+
+                <!-- Ground footer -->
+                <div class="main-menu-frame"></div>
             </div>
         </div>
     </body>
