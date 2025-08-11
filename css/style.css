@@ -43,8 +43,8 @@ body {
 
 .home-background {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   font-family: "titleOptionFont";
   font-size: xx-large;
@@ -102,7 +102,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 3;
   gap: 3%;
 }
 
@@ -128,7 +128,7 @@ body {
 }
 
 .current-option {
-  background: url("..\\imgs\\title-itemSelect.png");
+  background: url("../imgs/title-itemSelect.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -149,11 +149,11 @@ body {
 .page-option {
   height: 100%;
   font-family: "titleOptionFont";
-  font-size: min(4cqw,4cqh);
+  font-size: 4cqh;
   color: white;
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 0.05em black;
   justify-self: center;
-
+  -webkit-text-size-adjust: none;
   background-color: transparent;
   border: none;
 }
@@ -218,4 +218,82 @@ button.page-option:hover + div.current-option{
     left: 100%;
     transform: rotate(360deg) translateY(-10rem);
   }
+}
+
+/* Clouds */
+.clouds {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    pointer-events: none;
+    z-index: 0;
+}
+.clouds .cloud {
+    position: absolute;
+    background: url("../imgs/cloud.png") no-repeat;
+    background-size: contain;
+    width: 7.5vw;
+    height: 5vh;
+    animation: cloudMove 40s linear infinite;
+}
+.clouds .cloud:nth-child(2) {
+    top: 40%;
+    animation-delay: -30s;
+}
+
+@keyframes cloudMove {
+    0% { left: -20vw; }
+    100% { left: 120vw; }
+}
+
+/* Title bob animation */
+.title-card img {
+    max-width: 80%;
+    pointer-events: none;
+    animation: titleBob 3s ease-in-out infinite;
+}
+@keyframes titleBob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Ground tiles */
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px; /* adjust to your tile size */
+    background: url("../imgs/ground_tile.png") repeat-x;
+    background-size: contain;
+    z-index: 2;
+}
+
+.main-menu-frame {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* adjust to your tile size */
+    background: url("../imgs/frame.png") no-repeat;
+    background-size: contain;
+    z-index: 2;
+}
+
+/* Robot walking */
+.robot {
+    position: absolute;
+    bottom: 64px; /* just above ground tiles */
+    left: -64px;
+    width: 64px;
+    height: 64px;
+    background: url("../imgs/robot_sprite.png") no-repeat;
+    background-size: contain;
+    animation: robotWalk 15s linear infinite;
+}
+@keyframes robotWalk {
+    0% { left: -64px; }
+    100% { left: 100vw; }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumping and Moving Block</title>
+    <title>Jumping and Moving Block with Scrolling</title>
     <style>
         body {
             margin: 0;
@@ -21,6 +21,13 @@
             height: 80vh;
             background-color: lightgreen;
             border: 2px solid black;
+            overflow: hidden;
+        }
+        .level {
+            position: absolute;
+            width: 200%; /* Start with a wider level than the screen */
+            height: 100%;
+            background-color: #a8e6cf; /* Change background color for the level */
         }
         .character {
             position: absolute;
@@ -35,20 +42,23 @@
 </head>
 <body>
     <div class="game-container">
+        <div class="level" id="level"></div>
         <div class="character" id="character"></div>
     </div>
 
     <script>
         let character = document.getElementById('character');
+        let level = document.getElementById('level');
         let positionX = 10;
         let positionY = 50;
-        const step = 5;
+        const step = 1;
         const jumpHeight = 10;  // How high the block jumps
         let isJumping = false;
         let velocityY = 0;
         const gravity = 0.2;  // Controls how fast the block falls
         const containerHeight = document.querySelector(".game-container").offsetHeight;
         const containerWidth = document.querySelector(".game-container").offsetWidth;
+        const levelWidth = 200;  // Initial level width (can be expanded further as needed)
 
         // Track which keys are being pressed
         let keysPressed = {
@@ -88,6 +98,12 @@
                 positionX += step;
             } else if (keysPressed.ArrowLeft && positionX - step >= 0) {
                 positionX -= step;
+            }
+
+            // Scroll the level to the right as the player moves
+            if (positionX > containerWidth / 2) {
+                let scrollDistance = positionX - containerWidth / 2;
+                level.style.left = `-${scrollDistance}px`; // Move the level to the left
             }
 
             // Handle jumping and gravity
